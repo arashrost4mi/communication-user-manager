@@ -11,7 +11,7 @@ export class EmailService implements EmailServiceInterface {
       service: 'gmail',
       auth: {
         user: 'arashrost4mi@gmail.com',
-        pass: 'tmcdvvfttjiynfur',
+        pass: 'ّFakePassword123',
       },
     });
   }

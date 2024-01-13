@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
+import { EmailServiceInterface } from './email-service.interface';
 
 @Injectable()
-export class EmailService {
+export class EmailService implements EmailServiceInterface {
   private transporter;
 
   constructor() {
@@ -10,7 +11,7 @@ export class EmailService {
       service: 'gmail',
       auth: {
         user: 'arashrost4mi@gmail.com',
-        pass: 'FakePssword123',
+        pass: 'tmcdvvfttjiynfur',
       },
     });
   }
@@ -36,7 +37,7 @@ export class EmailService {
       const text = `Your OTP code is ${otp}. Please use it to verify your identity.`;
 
       await this.sendEmail(to, subject, text);
-      return `sent to ${to}. otp is ${otp}`;
+      return { success: true, message: `sent to ${to}. otp is ${otp}` };
     } catch (error) {
       throw new Error('Failed to send email.');
     }

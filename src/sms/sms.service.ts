@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+import { SmsServiceInterface } from './sms-service.interface';
 
 @Injectable()
-export class SmsService {
+export class SmsService implements SmsServiceInterface {
   private apiUrl = 'https://api.kavenegar.com/v1';
   private apiKey = 'FakeApiKey123';
 
